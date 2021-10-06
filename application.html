@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test-application</title>
+    <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
+    
+</head>
+<body>
+    <div class="header-top">
+        <div class="content">
+          <a href="https://waites.com.ua/" class="logo">
+            <img src="https://waites.com.ua/img/logo.svg" alt="">
+          </a>
+          <h1>Search bot users</h1>
+        </div>
+    </div>
+    <div class="content">
+        <div class="elastic">
+            <input class="form-control" type="text" placeholder="username" id="search-text" onkeyup="tableSearch()">
+        <table class="table table-striped" id="info-table">
+                <tr>
+                    <th>avatar</th>
+                    <th>name</th>
+                    <th>phone</th>
+                    <th>email</th>
+                    <th>sex</th>
+                    <th>birthday</th>
+                </tr><tr>
+                    <td><img src="https://www.vokrug.tv/pic/person/2/b/f/4/2bf448098b7badf3b37e87c510da29bc.jpeg" alt=""> </td>
+                    <td>Anton</td>
+                    <td>+380674235248</td>
+                    <td>ssdq23@gmail.com</td>
+                    <td>male</td>
+                    <td>20.12.2000</td>
+                </tr>
+                <tr>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/ru/thumb/c/ce/Aang.png/274px-Aang.png" alt=""> </td>
+                    <td>Boris</td>
+                    <td>+380474235253</td>
+                    <td>ttdq33@gmail.com</td>
+                    <td>male</td>
+                    <td>13.10.2010</td>
+                </tr>
+                <tr>
+                    <td><img src="https://i.pinimg.com/736x/6b/b4/bd/6bb4bd2f43fc2b985850a81cdea2ba71.jpg" alt=""> </td>
+                    <td>Alla</td>
+                    <td>+380674482316</td>
+                    <td>wwdq223@gmail.com</td>
+                    <td>famale</td>
+                    <td>05.03.2002</td>
+                </tr><tr>
+                    <td><img src="https://www.vokrug.tv/pic/person/2/b/f/4/2bf448098b7badf3b37e87c510da29bc.jpeg" alt=""> </td>
+                    <td>Viktor</td>
+                    <td>+380674235248</td>
+                    <td>ssdq23@gmail.com</td>
+                    <td>male</td>
+                    <td>20.12.2000</td>
+                </tr>
+                <tr>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/ru/thumb/c/ce/Aang.png/274px-Aang.png" alt=""> </td>
+                    <td>Gleb</td>
+                    <td>+380474235253</td>
+                    <td>ttdq33@gmail.com</td>
+                    <td>male</td>
+                    <td>13.10.2010</td>
+                </tr>
+                <tr>
+                    <td><img src="https://i.pinimg.com/736x/6b/b4/bd/6bb4bd2f43fc2b985850a81cdea2ba71.jpg" alt=""> </td>
+                    <td>Kara</td>
+                    <td>+380674482316</td>
+                    <td>wwdq223@gmail.com</td>
+                    <td>famale</td>
+                    <td>05.03.2002</td>
+                </tr>
+                <tr>
+                    <td><img src="https://www.vokrug.tv/pic/person/2/b/f/4/2bf448098b7badf3b37e87c510da29bc.jpeg" alt=""> </td>
+                    <td>Igor</td>
+                    <td>+380674235248</td>
+                    <td>ssdq23@gmail.com</td>
+                    <td>male</td>
+                    <td>20.12.2000</td>
+                </tr>
+                <tr>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/ru/thumb/c/ce/Aang.png/274px-Aang.png" alt=""> </td>
+                    <td>Kirill</td>
+                    <td>+380474235253</td>
+                    <td>ttdq33@gmail.com</td>
+                    <td>male</td>
+                    <td>13.10.2010</td>
+                </tr>
+                <tr>
+                    <td><img src="https://i.pinimg.com/736x/6b/b4/bd/6bb4bd2f43fc2b985850a81cdea2ba71.jpg" alt=""> </td>
+                    <td>Dina</td>
+                    <td>+380674482316</td>
+                    <td>wwdq223@gmail.com</td>
+                    <td>famale</td>
+                    <td>05.03.2002</td>
+                </tr>
+        </table>
+      </div>
+    </div>
+    <style>
+       body {
+  margin: 0;
+}
+.header-top {
+  background: #22262c;
+  box-shadow: 0px 4px 28px rgb(0 0 0 / 25%);
+  width: 100%;
+  margin-bottom: 50px;
+}
+.header-top .logo {
+  width: 200px;
+  line-height: 0;
+}
+.header-top .logo img {
+  width: 100%;
+}
+.header-top .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+h1 {
+  color: #eeedea6b;
+}
+table {
+  margin-top: 50px;
+}
+th {
+  text-transform: uppercase;
+}
+td img {
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+}
+    </style>
+    <script>
+        function tableSearch() {
+        var phrase = document.getElementById('search-text');
+        var table = document.getElementById('info-table');
+        var regPhrase = new RegExp(phrase.value, 'i');
+        var flag = false;
+        for (var i = 1; i < table.rows.length; i++) {
+            flag = false;
+            flag = regPhrase.test(table.rows[i].cells[1].innerHTML);
+            if (flag) {
+                table.rows[i].style.display = "";
+            } else {
+                table.rows[i].style.display = "none";
+            }
+        }
+    }</script>
+</body>
+</html>
